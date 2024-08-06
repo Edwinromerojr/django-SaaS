@@ -18,7 +18,7 @@
             {% if request.user.is_authenticated %}
             {% else %}
                 <a href="{% url 'accounts:signup' %}" class="py-4 px-6 bg-cyan-600 text-white rounded-xl">Sign up</a>
-                <a href="#" class="py-4 px-6 bg-gray-600 text-white rounded-xl">Login</a>
+                <a href="{% url 'accounts:login' %}" class="py-4 px-6 bg-gray-600 text-white rounded-xl">Login</a>
             {% endif %}
         </div>
     </nav>
