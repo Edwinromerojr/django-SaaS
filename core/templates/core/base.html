@@ -16,6 +16,10 @@
             <a href="{% url 'core:pricing' %}" class="text-white">Pricing</a>
 
             {% if request.user.is_authenticated %}
+                <form action="{% url 'accounts:logout' %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="py-4 px-6 bg-rose-600 text-white rounded-xl">Log out</button>
+                </form>
             {% else %}
                 <a href="{% url 'accounts:signup' %}" class="py-4 px-6 bg-cyan-600 text-white rounded-xl">Sign up</a>
                 <a href="{% url 'accounts:login' %}" class="py-4 px-6 bg-gray-600 text-white rounded-xl">Login</a>
