@@ -1,9 +1,9 @@
 {% extends "core/base.html" %}
 
-{% block title %}Create Category{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-    <h1 class="text-xl">Create Category</h1>
+    <h1 class="text-xl">{{ title }}</h1>
 
     <form action="" method="POST">
         {% csrf_token %}

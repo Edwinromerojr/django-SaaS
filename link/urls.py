@@ -8,5 +8,6 @@ urlpatterns = [
     path('', views.links, name='links'),
     path('categories/', views.categories, name='categories'),
     path('categories/create-category/', views.create_category, name='create_category'),
+    path('categories/<int:pk>/edit/', views.edit_category, name='edit_category'),
     path('create-link/', views.create_link, name='create_link'),
 ]
