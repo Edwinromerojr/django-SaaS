@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     'core',
     'link',
+    'dashboard',
 ]
 
 MIDDLEWARE = [
@@ -127,6 +128,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.User'
 
-LOGIN_URL = 'accounts:login'
-LOGIN_REDIRECT_URL = 'core:index'
-LOGOUT_REDIRECT_URL = 'accounts:login'
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/dashboard/'
+LOGOUT_REDIRECT_URL = '/'

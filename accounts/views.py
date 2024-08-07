@@ -14,7 +14,7 @@ def signup(request):
             if user is not None:
                 login(request, user)
 
-                return redirect('/')
+                return redirect('/dashboard/')
     else:
         form = SignupForm()
     return render(request, 'accounts/signup.html', {'form':form})
