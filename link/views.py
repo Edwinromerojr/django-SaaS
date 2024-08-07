@@ -6,6 +6,13 @@ from .forms import CategoryForm, LinkForm
 
 # Create your views here.
 @login_required
+def categories(request):
+    categories = Category.objects.filter(created_by=request.user)
+
+    return render(request, 'link/categories.html', {'categories': categories,})
+
+
+@login_required
 def create_category(request):
     if request.method == 'POST':
         form = CategoryForm(request.POST)

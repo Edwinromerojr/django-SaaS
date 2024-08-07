@@ -18,7 +18,7 @@
             {% if request.user.is_authenticated %}
                 <a href="{% url 'links:links' %}" class="text-white">Links</a>
                 <a href="{% url 'dashboard:dashboard' %}" class="text-white">Dashboard</a>
-                <a href="{% url 'links:create_category' %}" class="py-4 px-6 bg-cyan-600 text-white rounded-xl">Create Category</a>
+                <a href="{% url 'links:categories' %}" class="text-white">Categories</a>
                 <a href="{% url 'links:create_link' %}" class="py-4 px-6 bg-emerald-600 text-white rounded-xl">Create Link</a>
                 <form action="{% url 'accounts:logout' %}" method="post" style="display:inline;">
                     {% csrf_token %}
