@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
     <title>{% block title %}{% endblock %} | POPO</title>
 </head>
 
-<body>
+<body class="flex flex-col h-screen">
     <nav class="p-6 flex items-center justify-between bg-gray-800">
         <a href="/" class="text-xl text-cyan-500">POPO</a>
 
@@ -26,12 +26,14 @@
             {% endif %}
         </div>
     </nav>
-    <main class="p-6">
+
+    <main class="flex-1 p-6">
         {% block content %}
         {% endblock %}
     </main>
+
     <footer class="p-6 bg-gray-900">
-        <p class="text-xs text-gray-400">Copyright (c) 2024 - POPO</p>
+        <p class="text-xs text-gray-400">&copy; 2024 - POPO</p>
     </footer>
 </body>
 </html>
