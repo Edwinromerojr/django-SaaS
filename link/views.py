@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
-from .models import Category
+from .models import Category, Link
 from .forms import CategoryForm, LinkForm
 
 # Create your views here.
@@ -38,3 +38,12 @@ def create_link(request):
         form.fields['category'].queryset = Category.objects.filter(created_by=request.user)
 
     return render(request, 'link/create_link.html', {'form': form})
+
+
+@login_required
+def links(request):
+    links = Link.objects.filter(created_by=request.user)
+
+    return render(request, 'link/links.html', {
+        'links': links,
+    })
