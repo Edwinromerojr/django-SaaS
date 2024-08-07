@@ -50,6 +50,14 @@ def edit_category(request, pk):
 
 
 @login_required
+def delete_category(request, pk):
+    category = get_object_or_404(Category, created_by=request.user, pk=pk)
+    category.delete()
+
+    return redirect('/links/categories/')
+
+
+@login_required
 def links(request):
     links = Link.objects.filter(created_by=request.user)
 
