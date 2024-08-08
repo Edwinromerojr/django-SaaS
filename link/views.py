@@ -106,3 +106,11 @@ def edit_link(request, pk):
         'form': form,
         'title': 'Edit link'
     })
+
+
+@login_required
+def delete_link(request, pk):
+    link = get_object_or_404(Link, created_by=request.user, pk=pk)
+    link.delete()
+
+    return redirect('/links/')
