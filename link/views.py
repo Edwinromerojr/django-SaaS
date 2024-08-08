@@ -81,4 +81,28 @@ def create_link(request):
         form = LinkForm()
         form.fields['category'].queryset = Category.objects.filter(created_by=request.user)
 
-    return render(request, 'link/create_link.html', {'form': form})
+    return render(request, 'link/create_link.html', {
+        'form': form,
+        'title': 'Create link'
+        })
+
+
+@login_required
+def edit_link(request, pk):
+    link = get_object_or_404(Link, created_by=request.user, pk=pk)
+
+    if request.method == 'POST':
+        form = LinkForm(request.POST, instance=link)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('/links/')
+    else:
+        form = LinkForm(instance=link)
+        form.fields['category'].queryset = Category.objects.filter(created_by=request.user)
+
+    return render(request, 'link/create_link.html', {
+        'form': form,
+        'title': 'Edit link'
+    })
