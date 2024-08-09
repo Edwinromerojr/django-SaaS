@@ -28,6 +28,13 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+STRIPE_TEST_PUBLIC_KEY ='pk_test' #get this to the site
+STRIPE_TEST_SECRET_KEY = 'sk_test'
+STRIPE_LIVE_MODE = False  # Change to True in production
+DJSTRIPE_WEBHOOK_SECRET = "whsec_xxx"
+DJSTRIPE_FOREIGN_KEY_TO_FIELD = "id"
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,10 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',
-    'core',
-    'link',
-    'dashboard',
+    'accounts.apps.AccountsConfig',
+    'core.apps.CoreConfig',
+    'link.apps.LinkConfig',
+    'dashboard.apps.DashboardConfig',
+    'djstripe',
 ]
 
 MIDDLEWARE = [
